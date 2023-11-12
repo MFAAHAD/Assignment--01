@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    double a, x, d, d1, l;
+    int m;
+
+    printf("Enter an angle in degrees: ");
+    scanf("%lf", &a);
+
+    printf("Enter the number of order: ");
+    scanf("%d", &m);
+
+    printf("Enter a slit difference (in micrometers): ");
+    scanf("%lf", &d);
+
+    d1 = d * 1e-6;
+    double a1 = a * M_PI / 180.0;
+    x = sin(a1);
+    l = (x * d1) / m;
+    double L = l / 1e-9;
+
+    printf("L (in nanometers): %.2lf\n", L);
+
+    if (L >= 380 && L< 450) {
+        printf("The entered wavelength corresponds to violet light.\n");
+    } else if (L >= 450 && L< 495) {
+        printf("The entered wavelength corresponds to blue light.\n");
+    } else if (L >= 495 && L < 570) {
+        printf("The entered wavelength corresponds to green light.\n");
+    } else if (L>= 570 && L < 590) {
+        printf("The entered wavelength corresponds to yellow light.\n");
+    } else if (L >= 590 && L < 620) {
+        printf("The entered wavelength corresponds to orange light.\n");
+    } else if (L >= 620 && L <= 750) {
+        printf("The entered wavelength corresponds to red light.\n");
+    } else {
+        printf("The entered wavelength is outside the visible light spectrum.\n");
+    }
+
+
+    return 0;
+}
