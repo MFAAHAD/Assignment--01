@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    int m,m1;
+    m=3,m1=2;
+    double d,theta1,theta2,lamda1,lamda2;
+    lamda1=530,lamda2=700;
+    lamda1/=1e6,lamda2/=1e6;
+    theta1=65.0;
+    d=((m*lamda1)/sin(theta1*M_PI/180));
+    double ans=((m1*lamda2)/d);
+    theta2=asin(ans);
+    double angle=theta2*180/M_PI;
+    printf("The angle for the second-order bright spot for red light is %.2f degrees\n", angle);
+    return 0;
+}
